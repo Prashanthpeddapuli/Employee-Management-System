@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Tailwind custom colors setup */
+        :root {
+            --primary: #4C51BF;
+            --secondary: #F56565;
+            --background: #F7F7F7;
+            --card: #FFFFFF;
+            --input: #F4F4F5;
+            --primary-foreground: #FFFFFF;
+            --secondary-foreground: #2D3748;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #4C51BF;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #F7F7F7;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 flex justify-between items-center shadow-lg rounded-b-xl">
+        <div class="flex items-center space-x-4">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.0wTrmO9Jm3Yfxm6d7_a4bwHaC9&pid=Api&P=0&h=180" alt="Company Logo" class="h-12 w-12 rounded-full shadow-lg border-2 border-white" />
+            <h1 class="text-3xl font-bold tracking-wide">Employee Management System</h1>
+        </div>
+        <div class="hidden md:block">
+            <input
+                type="text"
+                placeholder="Search Employees"
+                class="bg-white text-gray-800 px-4 py-2 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <nav class="ml-6">
+                <ul class="flex space-x-8 text-lg font-semibold">
+                    <li><a href="#" class="hover:text-indigo-200 transition duration-200">Employee Registration</a></li>
+                    <li><a href="#" class="hover:text-indigo-200 transition duration-200">Employee Listing</a></li>
+                </ul>
+            </nav>
+        </div>
+        <button class="md:hidden text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 space-y-8">
+        <!-- Employee Registration Form -->
+        <section class="bg-white p-8 rounded-xl shadow-lg mb-8 space-y-6">
+            <h2 class="text-2xl font-semibold text-gray-800">Employee Registration</h2>
+            <form id="employee-form" class="space-y-6">
+                <input
+                    type="text"
+                    placeholder="Full Name"
+                    class="w-full bg-gray-100 text-gray-800 px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <input
+                    type="text"
+                    placeholder="Position"
+                    class="w-full bg-gray-100 text-gray-800 px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <textarea
+                    placeholder="About"
+                    class="w-full bg-gray-100 text-gray-800 px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                ></textarea>
+                <input
+                    type="date"
+                    class="w-full bg-gray-100 text-gray-800 px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <button
+                    type="submit"
+                    class="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300"
+                >
+                    Register Employee
+                </button>
+            </form>
+        </section>
+
+        <!-- Employee Listing Table -->
+        <section class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Employee Listing</h2>
+            <table class="w-full bg-gray-50 rounded-lg shadow-md">
+                <thead class="bg-indigo-600 text-white">
+                    <tr>
+                        <th class="px-6 py-4 text-left">Name</th>
+                        <th class="px-6 py-4 text-left">Position</th>
+                        <th class="px-6 py-4 text-left">About</th>
+                        <th class="px-6 py-4 text-left">Joining Date</th>
+                        <th class="px-6 py-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employee-list">
+                    <!-- Employee rows will be added dynamically -->
+                </tbody>
+            </table>
+
+            <div class="mt-6 flex justify-center space-x-4">
+                <button class="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition duration-200">
+                    Previous
+                </button>
+                <button class="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition duration-200">
+                    Next
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-600 text-white p-4 mt-auto text-center rounded-t-xl">
+        <p>&copy; Prashanth Peddapuli | All Rights Reserved</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
